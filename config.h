@@ -7,16 +7,33 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Iosevka Nerd Font:size=18", "Iosevka Nerd Font:size=24" };
+static const char *fonts[]          = { "DejaVu Sans Mono Nerd Font:size=18", "DejaVu Sans Mono Nerd Font:size=24" };
 
 
-// gruvbox blue 
-static const char col_normalbg[]      = "#076678";
-static const char col_normalfg[]      = "#ebdbb2";
-static const char col_normalbd[]      = "#282828";
-static const char col_selectbg[]      = "#076678";
-static const char col_selectfg[]      = "#282828";
-static const char col_selectbd[]      = "#076678";
+/* // gruvbox blue */ 
+/* static const char col_normalbg[]      = "#076678"; */
+/* static const char col_normalfg[]      = "#ebdbb2"; */
+/* static const char col_normalbd[]      = "#282828"; */
+/* static const char col_selectbg[]      = "#076678"; */
+/* static const char col_selectfg[]      = "#282828"; */
+/* static const char col_selectbd[]      = "#076678"; */
+
+// monochrome 
+/* static const char col_normalbg[]      = "#0a0a0a"; */
+/* static const char col_normalfg[]      = "#c9c9c9"; */
+/* static const char col_normalbd[]      = "#0a0a0a"; */
+/* static const char col_selectbg[]      = "#c9c9c9"; */
+/* static const char col_selectfg[]      = "#0a0a0a"; */
+/* static const char col_selectbd[]      = "#c9c9c9"; */
+
+// fav wal 
+static const char col_normalbg[]      = "#060815";
+static const char col_normalfg[]      = "#9fb9c1";
+static const char col_normalbd[]      = "#060815";
+static const char col_selectbg[]      = "#9fb9c1";
+static const char col_selectfg[]      = "#060815";
+static const char col_selectbd[]      = "#9fb9c1";
+
 static const char *colors[][3] = {
 	/*                            fg,           bg,  border   */
 	[SchemeNorm]    = { col_normalfg, col_normalbg,  col_normalbd},
@@ -27,6 +44,7 @@ static const char *colors[][3] = {
         [SchemeInfoSel] = { col_normalfg, col_normalbg,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
         [SchemeInfoNorm]= { col_normalfg, col_normalbg,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
+
 
 /* tagging */
 static const char *tags[] = { "I", "II", "III", "IV", "V", "VI"};
@@ -39,6 +57,7 @@ static const Rule rules[] = {
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "Gimp",           NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "Alacritty",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ "kitty",          NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ "St",             NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,             NULL,     "Picture-in-Picture",           0,         1,          0,           0,        -1 },
 	{ NULL,             NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
@@ -82,7 +101,7 @@ static const char *audio[] = {"audio", NULL};
 static const char *net[] = {"networkmanager_dmenu", NULL};
 static const char *ss[] = {"screenshot", NULL};
 static const char *clipmenu[] = {"clipmenu", NULL};
-static const char *passmenu[] = {"passmenu", NULL};
+static const char *passmenu[] = {"bitwarden-dmenu", NULL};
 static const char *mount[] = {"dmenumount", NULL};
 static const char *dmenuexit[] = {"dmenuexit", NULL};
 static const char *emoji[] = {"emojenu", NULL};
