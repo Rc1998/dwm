@@ -31,7 +31,7 @@ static const char col_normalfg[]      = "#212121";
 static const char col_normalbd[]      = "#f1f1f1"; 
 static const char col_selectbg[]      = "#212121"; 
 static const char col_selectfg[]      = "#f1f1f1"; 
-static const char col_selectbd[]      = "#20bbfc"; 
+static const char col_selectbd[]      = "#f0544c"; 
 
 // fav wal 
 /* static const char col_normalbg[]      = "#060815"; */
@@ -42,11 +42,11 @@ static const char col_selectbd[]      = "#20bbfc";
 /* static const char col_selectbd[]      = "#9fb9c1"; */
 
 static const char *colors[][3] = {
-		/*                  fg,           bg,            border   */
-		[SchemeNorm]    = { col_normalfg, col_normalbg,  col_normalbd},
-		[SchemeSel]     = { col_selectfg, col_selectbg,  col_selectbd},
-		[SchemeStatus]  = { col_normalfg, col_normalbg,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-		[SchemeTagsSel] = { col_selectfg, col_selectbg,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+        /*                  fg,           bg,            border   */
+	[SchemeNorm]    = { col_normalfg, col_normalbg,  col_normalbd},
+	[SchemeSel]     = { col_selectfg, col_selectbg,  col_selectbd},
+	[SchemeStatus]  = { col_normalfg, col_normalbg,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel] = { col_selectfg, col_selectbg,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
         [SchemeTagsNorm]= { col_normalfg, col_normalbg,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
         [SchemeInfoSel] = { col_normalfg, col_normalbg,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
         [SchemeInfoNorm]= { col_normalfg, col_normalbg,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
