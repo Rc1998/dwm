@@ -2,15 +2,15 @@
 
 /* appearance */
 static const unsigned int borderpx      = 4;        /* border pixel of windows */
-static const unsigned int gappx         = 15;       /* gaps between windows */
+static const unsigned int gappx         = 10;       /* gaps between windows */
 static const unsigned int snap          = 32;       /* snap pixel */
 static const int swallowfloating        = 0;        /* 1 means swallow floating windows by default */
 static const int showbar                = 1;        /* 0 means no bar */
-static const int topbar                 = 0;        /* 0 means bottom bar */
-static const char *fonts[]              = { "Iosevka Nerd Font:size=18", "Iosevka Nerd Font:size=24" };
+static const int topbar                 = 1;        /* 0 means bottom bar */
+static const char *fonts[]              = { "Fira Code Nerd Font:size=12", "Fira Code Nerd Font:size=18" };
 
 
-/* // monochrome dark */
+// monochrome dark
 /* static const char col_normalbg[]      = "#0a0a0a"; */
 /* static const char col_normalfg[]      = "#c9c9c9"; */
 /* static const char col_normalbd[]      = "#0a0a0a"; */
@@ -18,13 +18,13 @@ static const char *fonts[]              = { "Iosevka Nerd Font:size=18", "Iosevk
 /* static const char col_selectfg[]      = "#0a0a0a"; */
 /* static const char col_selectbd[]      = "#c9c9c9"; */
 
-// ayu
-/* static const char col_normalbg[]      = "#222222"; */
-/* static const char col_normalfg[]      = "#CBCCC6"; */
-/* static const char col_normalbd[]      = "#222222"; */
-/* static const char col_selectbg[]      = "#73D0FF"; */
-/* static const char col_selectfg[]      = "#222222"; */
-/* static const char col_selectbd[]      = "#73D0FF"; */
+// dark blue
+static const char col_normalbg[]      = "#202531";
+static const char col_normalfg[]      = "#e0e0e0";
+static const char col_normalbd[]      = "#202531";
+static const char col_selectbg[]      = "#e0e0e0";
+static const char col_selectfg[]      = "#202531";
+static const char col_selectbd[]      = "#e0e0e0";
 
 // gruvbox
 /* static const char col_normalbg[]      = "#282828"; */
@@ -35,13 +35,13 @@ static const char *fonts[]              = { "Iosevka Nerd Font:size=18", "Iosevk
 /* static const char col_selectbd[]      = "#458588"; */
 
 // light theme for the summer
-static const char col_normalbg[]      = "#dfdfdf";
-static const char col_normalfg[]      = "#000000";
-static const char col_normalbd[]      = "#dfdfdf";
-static const char col_selectbg[]      = "#3875d7";
-static const char col_selectfg[]      = "#dfdfdf";
-static const char col_selectbd[]      = "#3875d7";
-
+/* static const char col_normalbg[]      = "#dfdfdf"; */
+/* static const char col_normalfg[]      = "#000000"; */
+/* static const char col_normalbd[]      = "#dfdfdf"; */
+/* static const char col_selectbg[]      = "#3875d7"; */
+/* static const char col_selectfg[]      = "#dfdfdf"; */
+/* static const char col_selectbd[]      = "#3875d7"; */
+// macOS blue #3875d7
 
 static const char *colors[][3] = {
         /*                  fg,           bg,            border   */
@@ -56,7 +56,7 @@ static const char *colors[][3] = {
 
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6"};
+static const char *tags[] = { "", "2", "3", "4", "5", "6"};
 
 static const Rule rules[] = {
         /* xprop(1):
@@ -64,10 +64,10 @@ static const Rule rules[] = {
          *      WM_NAME(STRING) = title
          */
         /* class            instance  title           tags mask  isfloating  isterminal   noswallow  monitor */
-        { "Gimp",           NULL,     NULL,           0,         1,          0,           0,        -1 },
         { "Alacritty",      NULL,     NULL,           0,         0,          1,           0,        -1 },
         { "kitty",          NULL,     NULL,           0,         0,          1,           0,        -1 },
         { "St",             NULL,     NULL,           0,         0,          1,           0,        -1 },
+        { "galculator",     NULL,     NULL,           0,         1,          0,           0,        -1 },
         { NULL,             NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
         { NULL,             NULL,     "Picture-in-Picture",           0,         1,          0,           0,        -1 },
 };
@@ -113,8 +113,9 @@ static const char *clipmenu[]           = {"clipmenu", "-c", "-p", "Clipboard: "
 static const char *passmenu[]           = {"passmenu", "-c", "-m", dmenumon, "-p", "Passwords: ", NULL};
 static const char *mount[]              = {"dmenumount", NULL};
 static const char *dmenuexit[]          = {"dmenuexit", NULL};
+static const char *menucalc[]           = {"=", "--", "-c", "-m", dmenumon, NULL};
 static const char *emoji[]              = {"emojenu", NULL};
-static const char *dmenuscreen[]            = {"dmenuscreen", NULL};
+static const char *dmenuscreen[]        = {"dmenuscreen", NULL};
 
 static Key keys[] = {
         /* modifier                     key        function        argument */
@@ -136,6 +137,7 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = dmenusdcv } },
         { MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenuscreen} },
         { MODKEY,                       XK_F10,    spawn,          {.v = ss } },
+        { MODKEY,                       XK_equal,  spawn,          {.v = menucalc } },
         { MODKEY,                       XK_b,      togglebar,      {0} },
         { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
         { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
